@@ -1,0 +1,18 @@
+<div class="markdown">
+    <markdown [src]="'assets/docs/UC_Add.md'"></markdown>
+</div>
+*****************************************************************************
+<pre class="mermaid">
+  stateDiagram-v2
+    [*] --> Certidão_Predial__Gerada
+    Certidão_Predial__Aguardando_Ajuste --> Certidão_Predial__Em_Ajuste
+    Certidão_Predial__Aguardando_Emissão --> Certidão_Predial__Emitida
+    Certidão_Predial__Aprovada --> Certidão_Predial__Em_Pagamento_de_Impostos/Taxas
+    Certidão_Predial__Em_Ajuste --> Certidão_Predial__Em_Análise
+    Certidão_Predial__Em_Análise --> Certidão_Predial__Aguardando_Ajuste
+    Certidão_Predial__Em_Análise --> Certidão_Predial__Aprovada
+    Certidão_Predial__Em_Pagamento_de_Impostos/Taxas --> Certidão_Predial__Paga
+    Certidão_Predial__Gerada --> Certidão_Predial__Em_Análise
+    Certidão_Predial__Paga --> Certidão_Predial__Aguardando_Emissão
+    Certidão_Predial__Emitida --> [*]
+</pre>
